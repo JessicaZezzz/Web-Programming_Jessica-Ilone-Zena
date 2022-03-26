@@ -1,2 +1,1 @@
-# Nama : Jessica Ilone Zena
-# NIM  : 2440092391
+# SL1 - Jessica Ilone Zena - 2440092391
