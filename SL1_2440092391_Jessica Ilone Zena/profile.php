@@ -7,11 +7,29 @@
     <title>Profile</title>
     <style>
         <?php include "profile.css" ?>
+        
     </style>
 </head>
 <body>
     <?php 
         session_start();
+        include "config.php";
+        $username = $_SESSION['temp'];
+        $sql= "SELECT namaDepan,namaTengah,namaBelakang,tempatLahir, tanggalLahir, nik, wargaNegara,email,noHP, alamat, kodePos, fotoProfil FROM user WHERE username='$username'";
+        $result = $connection->query($sql);
+        $row = $result->fetch_assoc();
+        $data1 = $row["namaDepan"];
+        $data2 = $row["namaTengah"];
+        $data3 = $row["namaBelakang"];
+        $data4 = $row["tempatLahir"];
+        $data5 = $row["tanggalLahir"];
+        $data6 = $row["nik"];
+        $data7 = $row["wargaNegara"];
+        $data8 = $row["email"];
+        $data9 = $row["noHP"];
+        $data10 = $row["alamat"];
+        $data11 = $row["kodePos"];
+        $data12 = $row["fotoProfil"];    
     ?>
     <div class="navbar">
         <div class="temp1">
@@ -32,42 +50,44 @@
         <table>
             <tr>
                 <td>Nama Depan</td>
-                <td><?php echo "<b>".$_SESSION["NamaDepan"]."</b>"?></td>
+                <td><?php echo "<b>".$data1."</b>"?></td>
                 <td>Nama Tengah</td>
-                <td><?php echo "<b>".$_SESSION["NamaTengah"]."</b>"?></td>
+                <td><?php echo "<b>".$data2."</b>"?></td>
                 <td>Nama Belakang</td>
-                <td><?php echo "<b>".$_SESSION["NamaBelakang"]."</b>"?></td>
+                <td><?php echo "<b>".$data3."</b>"?></td>
             </tr>
             <tr>
                 <td>Tempat Lahir</td>
-                <td><?php echo "<b>".$_SESSION["TempatLahir"]."</b>"?></td>
+                <td><?php echo "<b>".$data4."</b>"?></td>
                 <td>Tgl Lahir</td>
                 <?php
-                    $originalDate = $_SESSION["TglLahir"];
+                    $originalDate = $data5;
                     $newDate = date("d-m-Y", strtotime($originalDate));
                 ?>
                 <td><?php echo "<b>".$newDate."</b>"?></td>
                 <td>NIK</td>
-                <td><?php echo "<b>".$_SESSION["Nik"]."</b>"?></td>
+                <td><?php echo "<b>".$data6."</b>"?></td>
             </tr>
             <tr>
                 <td>Warga Negara</td>
-                <td><?php echo "<b>".$_SESSION["WargaNegara"]."</b>"?></td>
+                <td><?php echo "<b>".$data7."</b>"?></td>
                 <td>Email</td>
-                <td><?php echo "<b>".$_SESSION["Email"]."</b>"?></td>
+                <td><?php echo "<b>".$data8."</b>"?></td>
                 <td>No HP</td>
-                <td><?php echo "<b>".$_SESSION["nohp"]."</b>"?></td>
+                <td><?php echo "<b>0".$data9."</b>"?></td>
             </tr>
             <tr>
                 <td>Alamat</td>
-                <td><?php echo "<b>".$_SESSION["Alamat"]."</b>"?></td>
+                <td><?php echo "<b>".$data10."</b>"?></td>
                 <td>Kode Pos</td>
-                <td><?php echo "<b>".$_SESSION["KodePos"]."</b>"?></td>
+                <td><?php echo "<b>".$data11."</b>"?></td>
                 <td>Foto Profil</td>
-                <?php $temp = $_SESSION['file'];?>
-                <td><?php echo "<img src= 'images/".$temp."'height=100 width=100>"; ?></td>  
+                <td><?php echo "<img src= 'images/".$data12."'height=100 width=100>"; ?></td>  
             </tr>
         </table>
+    </div>
+    <div class="edit">
+        <a href="editprofile.php">Edit</a>
     </div>
 </body>
 </html>

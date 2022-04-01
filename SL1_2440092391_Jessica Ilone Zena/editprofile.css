@@ -12,6 +12,11 @@ body{
     background-position: 0 0,10px 10px;
 }
 
+.error{
+    color:red;
+    font-size: 12px;
+}
+
 .navbar{
     height: 50px;
     background-color: black;
@@ -28,11 +33,6 @@ a{
     color: black;
     border-radius:15px;
 }
-
-/* a:hover{
-    background-color: rgb(129, 0, 0);
-    color:white;
-} */
 
 .temp1{
     width: 700px;
@@ -80,7 +80,7 @@ a{
     margin: 15px;
 }
 
-h1{
+h2{
     text-align: center;
     margin-top: 50px;
 }
@@ -94,7 +94,7 @@ table{
     width: 1000px;
     padding: 10px;
     left      : 50%;
-    top       : 50%;
+    top       : 55%;
     position  : absolute;
     transform : translate(-50%, -50%);
     font-size: 15px;
@@ -129,17 +129,35 @@ td:nth-child(6) {
     width: 170px;
 }
 
-.edit>a{
-    left      : 80%;
-    top       : 75%;
+.save{
+    left      : 65%;
+    top       : 85%;
+    position  : absolute;
+    font-size: 20px;
+    padding: 10px 35px;
+    background-color: rgb(22, 124, 19);
+    color: white;
+    border-radius:15px;
+    border: none;
+}
+
+.save:hover{
+    background-color: rgb(35, 214, 35);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.cancel{
+    left      : 75%;
+    top       : 85%;
     position  : absolute;
     font-size: 20px;
     padding: 7px 35px;
-    background-color: rgb(163, 29, 29);
+    background-color: rgb(156, 15, 15);
     color: white;
 }
 
-.edit>a:hover{
-    background-color: rgb(255, 65, 65);
+.cancel:hover{
+    background-color: rgb(218, 78, 78);
     color: rgb(0, 0, 0);
 }

@@ -29,7 +29,12 @@
     </div>
     <div class="content">
         <?php
-            echo "Halo <b>".$_SESSION["NamaDepan"]." ".$_SESSION["NamaTengah"]." ".$_SESSION["NamaBelakang"]."</b>, Selamat datang di Aplikasi Pengelolaan Keuangan.";
+        include "config.php";
+            $username = $_SESSION['temp'];
+            $sql= "SELECT namaDepan,namaTengah,namaBelakang FROM user WHERE username='$username'";
+            $result = $connection->query($sql);
+            $row = $result->fetch_assoc();
+            echo "Halo <b>".$row["namaDepan"]. " ". $row["namaTengah"]. " " . $row["namaBelakang"]. "</b>, Selamat datang di Aplikasi Pengelolaan Keuangan.";
         ?>
     </div>
 </body>
